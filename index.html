@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="script.js"></script>
+
+  <title>Frontend Mentor | E-commerce product page</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__logo">
+      <img src="images/logo.svg" alt="logo icon" class="header__logo-img">
+    </div>
+
+    <nav class="header__nav">
+      <ul class="header__nav-list">
+        <li class="header__nav-item"><a href="#" class="header__nav-link">Collections</a></li>
+        <li class="header__nav-item"><a href="#" class="header__nav-link">Men</a></li>
+        <li class="header__nav-item"><a href="#" class="header__nav-link">Women</a></li>
+        <li class="header__nav-item"><a href="#" class="header__nav-link">About</a></li>
+        <li class="header__nav-item"><a href="#" class="header__nav-link">Contact</a></li>
+      </ul>
+      <div class="header__notification">
+        <div class="header__cart">
+          <img src="images/icon-cart.svg" alt="cart icon" class="header__cart-img">
+        </div>
+        <div class="header__user">
+          <img src="images/image-avatar.png" alt="user avatar" class="header__user-avatar">
+        </div>
+        <div class="header__cart-container"></div>
+      </div>
+    </nav>
+    <hr>
+  </header>
+
+  <main>
+    <section class="section-product">
+
+      <div class="product__container">
+        <div class="product__goods">
+          <figure class="product__figure product__figure--1">
+            <img src="images/image-product-1.jpg" alt="shoe 1" class="product__img">
+          </figure>
+
+          <figure class="product__figure product__figure--2">
+            <img src="images/image-product-2.jpg" alt="shoe 2" class="product__img">
+          </figure>
+
+          <figure class="product__figure product__figure--3">
+            <img src="images/image-product-3.jpg" alt="shoe 3" class="product__img">
+          </figure>
+
+          <figure class="product__figure product__figure--4">
+            <img src="images/image-product-4.jpg" alt="shoe 4" class="product__img">
+          </figure>
+        </div>
+
+        <ul class="product__list">
+          <li class="product__item product__item--active" data-id="1">
+            <img src="images/image-product-1-thumbnail.jpg" alt="shoe 1" class="product__img product__img--active">
+          </li>
+          <li class="product__item" data-id="2">
+            <img src="images/image-product-2-thumbnail.jpg" alt="shoe 1" class="product__img">
+          </li>
+          <li class="product__item" data-id="3">
+            <img src="images/image-product-3-thumbnail.jpg" alt="shoe 1" class="product__img">
+          </li>
+          <li class="product__item" data-id="4">
+            <img src="images/image-product-4-thumbnail.jpg" alt="shoe 1" class="product__img">
+          </li>
+        </ul>
+      </div>
+
+      <div class="product__content">
+        <h3 class="heading-3">sneaker company</h3>
+        <h1 class="heading-1">fall limited edition sneakers</h1>
+        <p class="paragraph">These low-profile sneakers are your perfect casual wear companion. Featuring a durable
+          rubber outer sole, they’ll withstand everything the weather can offer.
+        </p>
+        <p class="price">
+          <span class="price__main">$125.00</span>
+          <span class="price__percent">50%</span>
+        </p>
+        <p class="price__cancel">$250.00</p>
+
+        <div class="cart">
+          <div class="cart__count">
+            <span class="cart__control-img">
+              <img src="images/icon-minus.svg" alt="icon minus" class="cart__icon cart__icon--1">
+            </span>
+            <span class="cart__value">0</span>
+            <span class="cart__control-img">
+              <img src="images/icon-plus.svg" alt="icon plus" class="cart__icon cart__icon--2">
+            </span>
+          </div>
+          <div class="cart__btn">
+            <span class="cart__img">
+              <img src="images/icon-cart-white.svg" alt="cart icon" class="cart__img-icon">
+            </span>
+            <span class="add-to-cart">Add to cart</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!--
+
+  $125.00
+  50%
+  $250.00
+
+  0
+  Add to cart -->
+
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+</body>
+
+</html>
