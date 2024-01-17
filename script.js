@@ -1,5 +1,9 @@
 'use strict';
 const productFigure = document.querySelectorAll('.product__figure');
+const cartValue = document.querySelector('.cart__value');
+
+let curNum = 0;
+cartValue.textContent = curNum;
 
 // 0%, 100%, 200%, 300%
 const transformFigure = function (value) {
@@ -11,7 +15,7 @@ const transformFigure = function (value) {
 
 transformFigure(0);
 
-const activeImage = function () {
+const activateImage = function () {
   const productList = document.querySelector('.product__list');
   const productItem = document.querySelectorAll('.product__item');
   const productImg = document.querySelectorAll('.product__img');
@@ -38,4 +42,37 @@ const activeImage = function () {
   })
 }
 
-activeImage();
+activateImage();
+
+const increaseAndDecreaseNumber = function () {
+  const cartCount = document.querySelector('.cart__count');
+
+  cartCount.addEventListener('click', function (e) {
+    if (e.target.classList.contains('cart__icon--1')) {
+      curNum--;
+      if (curNum < 0) curNum = 0;
+      cartValue.textContent = curNum;
+    }
+
+    if (e.target.classList.contains('cart__icon--2')) {
+      curNum++;
+      cartValue.textContent = curNum;
+    }
+  })
+}
+
+increaseAndDecreaseNumber();
+
+const addToCart = function () {
+  const cartBtn = document.querySelector('.cart__btn');
+  const headerCartNotice = document.querySelector('.header__cart-notice');
+
+  cartBtn.addEventListener('click', function (e) {
+    if (curNum === 0) return;
+    console.log(e.currentTarget);
+    headerCartNotice.classList.remove('hidden');
+    headerCartNotice.textContent = curNum;
+  })
+}
+
+addToCart();

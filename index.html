@@ -33,11 +33,17 @@
       <div class="header__notification">
         <div class="header__cart">
           <img src="images/icon-cart.svg" alt="cart icon" class="header__cart-img">
+          <span class="header__cart-notice hidden"></span>
         </div>
         <div class="header__user">
           <img src="images/image-avatar.png" alt="user avatar" class="header__user-avatar">
         </div>
-        <div class="header__cart-container"></div>
+        <div class="header__cart-container">
+          <h3 class="header__cart-heading">Cart</h3>
+          <div class="header__cart-container-item">
+            <p class="paragraph">Your cart is empty</p>
+          </div>
+        </div>
       </div>
     </nav>
     <hr>
@@ -98,7 +104,7 @@
             <span class="cart__control-img">
               <img src="images/icon-minus.svg" alt="icon minus" class="cart__icon cart__icon--1">
             </span>
-            <span class="cart__value">0</span>
+            <span class="cart__value"></span>
             <span class="cart__control-img">
               <img src="images/icon-plus.svg" alt="icon plus" class="cart__icon cart__icon--2">
             </span>
@@ -114,16 +120,6 @@
 
     </section>
   </main>
-
-  <!--
-
-  $125.00
-  50%
-  $250.00
-
-  0
-  Add to cart -->
-
   <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
