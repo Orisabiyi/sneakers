@@ -63,16 +63,38 @@ const increaseAndDecreaseNumber = function () {
 
 increaseAndDecreaseNumber();
 
+const renderListItem = function (currentNum, currentPrice = 125) {
+  const headerCartMain = document.querySelector('.header__cart-main');
+
+  headerCartMain.innerHTML = '';
+  const html = `
+      <div class="header__cart-item">
+        <div class="header__cart-img--1">
+          <img src="images/image-product-1-thumbnail.jpg" alt="sneakers image" class="header__cart-icon header__cart-icon--3">
+        </div>
+        <p class="header__cart-description">Fall Limited Edition Sneakers $${currentPrice.toFixed(2)} x ${currentNum} <strong>$${(currentPrice * currentNum).toFixed(2)}</strong></p>
+        <div class="header__cart-img--2">
+          <img src="images/icon-delete.svg" alt="delete icon" class="header__cart-icon">
+        </div>
+      </div>
+      
+      <button class="btn btn--1">Checkout</button>`;
+
+  headerCartMain.insertAdjacentHTML('afterbegin', html);
+  headerCartMain.style.justifyContent = 'space-between';
+}
+
 const addToCart = function () {
   const cartBtn = document.querySelector('.cart__btn');
   const headerCartPopup = document.querySelector('.header__cart-popup');
-  const headerCartMain = document.querySelector('.header__cart-main');
 
   cartBtn.addEventListener('click', function (e) {
     if (curNum === 0) return;
     headerCartPopup.classList.remove('hidden');
     headerCartPopup.textContent = curNum;
-    headerCartMain.innerHTML = '';
+
+    // render List of item
+    renderListItem(curNum);
   })
 }
 
