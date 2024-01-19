@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
   <header class="header">
     <div class="header__logo">
       <img src="images/logo.svg" alt="logo icon" class="header__logo-img">
@@ -30,21 +31,31 @@
         <li class="header__nav-item"><a href="#" class="header__nav-link">About</a></li>
         <li class="header__nav-item"><a href="#" class="header__nav-link">Contact</a></li>
       </ul>
-      <div class="header__notification">
-        <div class="header__cart">
-          <img src="images/icon-cart.svg" alt="cart icon" class="header__cart-img">
-          <span class="header__cart-notice hidden"></span>
+
+      <div class="header__cart">
+
+        <div class="header__cart-img">
+          <img src="images/icon-cart.svg" alt="cart icon" class="header__cart-icon">
+          <span class="header__cart-popup hidden"></span>
         </div>
-        <div class="header__user">
+
+        <div class="header__user-img">
           <img src="images/image-avatar.png" alt="user avatar" class="header__user-avatar">
         </div>
-        <div class="header__cart-container">
+
+        <div class="header__cart-basket">
           <h3 class="header__cart-heading">Cart</h3>
-          <div class="header__cart-container-item">
-            <p class="paragraph">Your cart is empty</p>
+          <div class="header__cart-main">
+            <p class="header__cart-paragraph">Your cart is empty</p>
+            <ul class="header__cart-list hidden">
+              <!-- <li class="header__cart-item"></li> -->
+            </ul>
+            <button class="btn hidden">Checkout</button>
           </div>
         </div>
+
       </div>
+
     </nav>
     <hr>
   </header>

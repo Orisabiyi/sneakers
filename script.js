@@ -1,5 +1,4 @@
 'use strict';
-const productFigure = document.querySelectorAll('.product__figure');
 const cartValue = document.querySelector('.cart__value');
 
 let curNum = 0;
@@ -7,6 +6,7 @@ cartValue.textContent = curNum;
 
 // 0%, 100%, 200%, 300%
 const transformFigure = function (value) {
+  const productFigure = document.querySelectorAll('.product__figure');
   productFigure.forEach((item, i) => {
     item.style.transform = `translateX(${100 * (i + value)}%)`;
     item.style.transition = 'all 1s';
@@ -65,13 +65,14 @@ increaseAndDecreaseNumber();
 
 const addToCart = function () {
   const cartBtn = document.querySelector('.cart__btn');
-  const headerCartNotice = document.querySelector('.header__cart-notice');
+  const headerCartPopup = document.querySelector('.header__cart-popup');
+  const headerCartMain = document.querySelector('.header__cart-main');
 
   cartBtn.addEventListener('click', function (e) {
     if (curNum === 0) return;
-    console.log(e.currentTarget);
-    headerCartNotice.classList.remove('hidden');
-    headerCartNotice.textContent = curNum;
+    headerCartPopup.classList.remove('hidden');
+    headerCartPopup.textContent = curNum;
+    headerCartMain.innerHTML = '';
   })
 }
 
