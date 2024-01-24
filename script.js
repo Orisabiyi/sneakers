@@ -23,7 +23,10 @@ const renderListItem = function (currentNum, currentPrice = 125) {
         <div class="header__cart-img--1">
           <img src="images/image-product-1-thumbnail.jpg" alt="sneakers image" class="header__cart-icon header__cart-icon--3">
         </div>
-        <p class="header__cart-description">Fall Limited Edition Sneakers $${currentPrice.toFixed(2)} x ${currentNum} <strong>$${(currentPrice * currentNum).toFixed(2)}</strong></p>
+        <p class="header__cart-description">
+          Fall Limited Edition Sneakers $${currentPrice.toFixed(2)} x ${currentNum} 
+          <strong>$${(currentPrice * currentNum).toFixed(2)}</strong>
+        </p>
         <div class="header__cart-img--2">
           <img src="images/icon-delete.svg" alt="delete icon" class="header__cart-icon">
         </div>
