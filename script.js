@@ -37,8 +37,6 @@ const transformImg = function (className, value) {
   })
 }
 
-transformImg('overlay__figure', 0);
-
 // Display Image on Click
 const displayImageOnClick = function () {
   const productList = document.querySelector('.product__list');
