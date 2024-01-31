@@ -30,38 +30,33 @@ const loadPage = function () {
 
 // 0%, 100%, 200%, 300%
 const transformImg = function (className, value) {
-  const productFigure = document.querySelectorAll(`.${className}`);
-  productFigure.forEach((item, i) => {
+  const figure = document.querySelectorAll(`.${className}`);
+  figure.forEach((item, i) => {
     item.style.transform = `translateX(${100 * (i + value)}%)`;
     item.style.transition = 'all 1s';
   })
 }
 
 // Display Image on Click
-const displayImageOnClick = function () {
-  const productList = document.querySelector('.product__list');
-  const productItem = document.querySelectorAll('.product__item');
-  const productImg = document.querySelectorAll('.product__img');
+const displayImageOnClick = function (figureClass, listClass, itemClass) {
+  const list = document.querySelector(`.${listClass}`);
+  const item = document.querySelectorAll(`.${itemClass}`);
 
-  productList.addEventListener('click', function (e) {
-    const productItemActive = e.target.closest('.product__item').classList.contains('product__item--active');
-    const productImgActive = e.target.classList.contains('product__img--active');
-
-    const clickedItem = e.target.closest('.product__item');
+  list.addEventListener('click', function (e) {
+    const itemActive = e.target.closest(`.${itemClass}`)?.classList.contains(`${itemClass}--active`);
+    const clickedItem = e.target.closest(`.${itemClass}`);
 
     // if active class is present
-    if (productItemActive && productImgActive) return;
+    if (itemActive) return;
 
     // Removing existing active class
-    productItem.forEach(item => item.classList.remove('product__item--active'));
-    productImg.forEach(item => item.classList.remove('product__img--active'));
+    item.forEach(item => item.classList.remove(`${itemClass}--active`));
 
     // Adding active class to clicked item and image
-    clickedItem.classList.add('product__item--active');
-    e.target.classList.add('product__img--active');
+    clickedItem?.classList.add(`${itemClass}--active`);
 
     // Transform to product image
-    transformImg('product__figure', -clickedItem.dataset.id + 1);
+    transformImg(figureClass, -clickedItem?.dataset.id);
   })
 }
 
@@ -145,11 +140,44 @@ const deleteCartItem = function () {
   })
 }
 
+const overlay = document.querySelector('.overlay');
+
+const closeOverlayOnClick = function () {
+  if (overlay.classList.contains('hidden')) return;
+
+  overlay.addEventListener('click', function (e) {
+    if (!e.target.closest('.btn__close')) return;
+
+    overlay.classList.add('hidden');
+  })
+}
+
+const displayOverlay = function () {
+  const slider = document.querySelector('.slider');
+
+  slider.addEventListener('click', function (e) {
+    if (!e.target.closest('.slider__product')) return;
+
+    overlay.classList.remove('hidden');
+    displayImageOnClick('overlay__figure', 'overlay__list', 'overlay__item');
+    closeOverlayOnClick();
+  })
+}
+
+const overlaySliderControl = function () {
+  const figure = document.querySelectorAll('.overlay__figure');
+}
+
+overlaySliderControl();
 
 loadPage();
 addToCart();
 showBasket();
 plusAndMinus();
 deleteCartItem();
-transformImg('product__figure', 0);
-displayImageOnClick();
+
+transformImg('slider__figure', 0);
+transformImg('overlay__figure', 0);
+
+displayImageOnClick('slider__figure', 'slider__list', 'slider__item');
+displayOverlay();

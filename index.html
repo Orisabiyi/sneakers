@@ -57,39 +57,39 @@
   </header>
 
   <main>
-    <section class="section-product">
+    <section class="product">
 
-      <div class="product__container">
-        <div class="product__goods">
-          <figure class="product__figure product__figure--1">
-            <img src="images/image-product-1.jpg" alt="shoe 1" class="product__img">
+      <div class="slider slider--1">
+        <div class="slider__product">
+          <figure class="slider__figure">
+            <img src="images/image-product-1.jpg" alt="shoe 1" class="slider__img">
           </figure>
 
-          <figure class="product__figure product__figure--2">
-            <img src="images/image-product-2.jpg" alt="shoe 2" class="product__img">
+          <figure class="slider__figure">
+            <img src="images/image-product-2.jpg" alt="shoe 2" class="slider__img">
           </figure>
 
-          <figure class="product__figure product__figure--3">
-            <img src="images/image-product-3.jpg" alt="shoe 3" class="product__img">
+          <figure class="slider__figure">
+            <img src="images/image-product-3.jpg" alt="shoe 3" class="slider__img">
           </figure>
 
-          <figure class="product__figure product__figure--4">
-            <img src="images/image-product-4.jpg" alt="shoe 4" class="product__img">
+          <figure class="slider__figure">
+            <img src="images/image-product-4.jpg" alt="shoe 4" class="slider__img">
           </figure>
         </div>
 
-        <ul class="product__list">
-          <li class="product__item product__item--active" data-id="1">
-            <img src="images/image-product-1-thumbnail.jpg" alt="shoe 1" class="product__img product__img--active">
+        <ul class="slider__list">
+          <li class="slider__item slider__item--active" data-id="0">
+            <img src="images/image-product-1-thumbnail.jpg" alt="shoe" class="slider__img">
           </li>
-          <li class="product__item" data-id="2">
-            <img src="images/image-product-2-thumbnail.jpg" alt="shoe 1" class="product__img">
+          <li class="slider__item" data-id="1">
+            <img src="images/image-product-2-thumbnail.jpg" alt="shoe" class="slider__img">
           </li>
-          <li class="product__item" data-id="3">
-            <img src="images/image-product-3-thumbnail.jpg" alt="shoe 1" class="product__img">
+          <li class="slider__item" data-id="2">
+            <img src="images/image-product-3-thumbnail.jpg" alt="shoe" class="slider__img">
           </li>
-          <li class="product__item" data-id="4">
-            <img src="images/image-product-4-thumbnail.jpg" alt="shoe 1" class="product__img">
+          <li class="slider__item" data-id="3">
+            <img src="images/image-product-4-thumbnail.jpg" alt="shoe" class="slider__img">
           </li>
         </ul>
       </div>
@@ -124,7 +124,56 @@
           </div>
         </div>
       </div>
+    </section>
 
+    <section class="overlay hidden">
+      <div class="slider slider--2">
+        <div class="btn__close">
+          <img src="images/icon-close.svg" alt="close">
+        </div>
+
+        <div class="btn__control">
+          <div class="btn__icon btn__icon--1">
+            <img src="/images/icon-previous.svg" alt="previous">
+          </div>
+          <div class="btn__icon btn__icon--2">
+            <img src="/images/icon-next.svg" alt="next">
+          </div>
+        </div>
+
+        <div class="overlay__product">
+          <figure class="overlay__figure">
+            <img src="images/image-product-1.jpg" alt="shoe 1" class="overlay__img">
+          </figure>
+
+          <figure class="overlay__figure">
+            <img src="images/image-product-2.jpg" alt="shoe 2" class="overlay__img">
+          </figure>
+
+          <figure class="overlay__figure">
+            <img src="images/image-product-3.jpg" alt="shoe 3" class="overlay__img">
+          </figure>
+
+          <figure class="overlay__figure">
+            <img src="images/image-product-4.jpg" alt="shoe 4" class="overlay__img">
+          </figure>
+        </div>
+
+        <ul class="overlay__list">
+          <li class="overlay__item overlay__item--active" data-id="0">
+            <img src="images/image-product-1-thumbnail.jpg" alt="shoe" class="overlay__img">
+          </li>
+          <li class="overlay__item" data-id="1">
+            <img src="images/image-product-2-thumbnail.jpg" alt="shoe" class="overlay__img">
+          </li>
+          <li class="overlay__item" data-id="2">
+            <img src="images/image-product-3-thumbnail.jpg" alt="shoe" class="overlay__img">
+          </li>
+          <li class="overlay__item" data-id="3">
+            <img src="images/image-product-4-thumbnail.jpg" alt="shoe" class="overlay__img">
+          </li>
+        </ul>
+      </div>
     </section>
   </main>
   <!-- <div class="attribution">
