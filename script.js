@@ -8,10 +8,12 @@ const cartBtn = document.querySelector('.cart__btn');
 
 
 const sliderList = document.querySelector('.slider__list');
-const sliderItem = document.querySelectorAll('.slider__item');
+const sliderItem = [...document.querySelectorAll('.slider__item')];
 const slider = document.querySelector('.slider');
 
 const overlay = document.querySelector('.overlay');
+const overlayList = document.querySelector('.overlay__list');
+const overlayItem = [...document.querySelectorAll('.overlay__item')]
 const overlaySlides = document.querySelectorAll('.overlay__figure');
 
 let curNum = 0;
@@ -49,17 +51,34 @@ const transformImg = function (className, value) {
 }
 
 // Display Image on Click
-const displayImageOnClick = function (e) {
-  const active = e.target.classList.contains('slider__item--active');
-  if (active || e.target.classList.contains('slider__list')) return;
+const displayImageOnClick = function (className, e) {
+  const item1 = document.querySelectorAll(`.${className}__item`);
+  const active = e.target.classList.contains(`${className}__item--active`);
+  if (active || e.target.classList.contains(`${className}__list`)) return;
 
   // remove existing active class from element
-  sliderItem.forEach(item => item.classList.remove('slider__item--active'));
+  item1.forEach(item => item.classList.remove(`${className}__item--active`));
 
   // Add active class to target element
-  e.target.classList.add('slider__item--active');
+  e.target.classList.add(`${className}__item--active`);
   curSlide = +e.target.dataset.id;
+  transformImg(`${className}__figure`, -curSlide);
+
+  if (curSlide === '' && className !== 'slider') return;
+  // Remove existing active class
+  overlayItem.forEach(item => item.classList.remove('overlay__item--active'));
+
+  const item2 = overlayItem.find(item => Number(item.dataset.id) === curSlide);
+  transformImg('overlay__figure', -curSlide);
+  item2.classList.add('overlay__item--active');
+
+  if (curSlide === '' && className !== 'overlay') return;
+  // Remove existing active class
+  sliderItem.forEach(item => item.classList.remove('slider__item--active'));
+
+  const item3 = sliderItem.find(item => Number(item.dataset.id) === curSlide);
   transformImg('slider__figure', -curSlide);
+  item3.classList.add('slider__item--active');
 }
 
 // Increase and Decrease Number
@@ -117,6 +136,7 @@ const addToCart = function (e) {
 }
 
 const deleteCartItem = function (e) {
+  e = event;
   const target = e.target.classList.contains('header__cart-icon')
   if (!target) return;
 
@@ -136,7 +156,6 @@ const closePopup = function (e) {
 
 const displayPopup = function (e) {
   if (!e.target.closest('.slider__product')) return;
-
   overlay.classList.remove('hidden');
 }
 
@@ -150,7 +169,8 @@ document.addEventListener('DOMContentLoaded', loadPage);
 cartBtn.addEventListener('click', addToCart);
 header.addEventListener('click', showBasket);
 headerCartMain.addEventListener('click', deleteCartItem);
-sliderList.addEventListener('click', displayImageOnClick);
+sliderList.addEventListener('click', displayImageOnClick.bind(this, 'slider'));
+overlayList.addEventListener('click', displayImageOnClick.bind(this, 'overlay'));
 cartCount.addEventListener('click', increaseDecreaseNumber);
 
 overlay.addEventListener('click', closePopup);
