@@ -42,6 +42,11 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+.menu {
+  display: none;
+  height: 100%;
+}
+
 .header,
 .header__nav,
 .header__nav-list,
@@ -222,6 +227,50 @@ body::-webkit-scrollbar {
   transition: border 100ms;
 }
 
+@media only screen and (max-width: 37.5em) {
+  .menu {
+    display: block;
+  }
+
+  .menu__icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .header {
+    padding: 3rem 5rem;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .header__logo {
+    margin-right: auto;
+    height: 3.5rem;
+  }
+
+  .header__logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .header__nav {
+    flex: 0;
+  }
+
+  .header__nav-list {
+    display: none;
+    margin-right: 0;
+  }
+
+  .header__cart-img {
+    width: 4rem;
+  }
+}
+
 hr {
   position: absolute;
   border: .02px solid var(--grayish-blue);
@@ -236,9 +285,9 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8rem;
+  gap: 16rem;
 
-  padding: 10rem 15rem;
+  padding: 8rem 13rem;
 }
 
 .slider {
@@ -246,7 +295,7 @@ hr {
 }
 
 .slider--1 {
-  width: 49%;
+  width: 45rem;
 }
 
 .slider--2 {
@@ -356,7 +405,8 @@ hr {
 }
 
 .product__content {
-  flex: 1;
+  flex: 0 0 auto;
+  width: 50rem;
   height: 100%;
 
   display: flex;
@@ -573,4 +623,63 @@ hr {
   cursor: pointer;
   filter: hue-rotate(519deg) saturate(45);
   transition: all 2s;
+}
+
+@media only screen and (max-width: 37.5em) {
+  hr {
+    display: none;
+  }
+
+  .product {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+  }
+
+  .slider {
+    width: 100%;
+  }
+
+  .slider__product {
+    height: 60rem;
+  }
+
+  .slider__img {
+    border-radius: 0;
+  }
+
+  .slider__list {
+    display: none;
+  }
+
+  .product__content {
+    width: 100%;
+    padding: 4rem;
+    padding-bottom: 10rem;
+
+    display: block;
+  }
+
+  .heading-1 {
+    font-size: 6rem;
+  }
+
+  .heading-3 {
+    font-size: 2.5rem;
+  }
+
+  .paragraph {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .price {
+    display: inline-block;
+    font-size: 3rem;
+  }
+
+  .price__cancel {
+    display: inline-block;
+    font-size: 3rem;
+  }
 }

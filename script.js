@@ -2,10 +2,10 @@
 const header = document.querySelector('.header');
 const headerCartPopup = document.querySelector('.header__cart-popup');
 const headerCartMain = document.querySelector('.header__cart-main');
+
 const cartValue = document.querySelector('.cart__value');
 const cartCount = document.querySelector('.cart__count');
 const cartBtn = document.querySelector('.cart__btn');
-
 
 const sliderList = document.querySelector('.slider__list');
 const sliderItem = [...document.querySelectorAll('.slider__item')];
@@ -15,6 +15,9 @@ const overlay = document.querySelector('.overlay');
 const overlayList = document.querySelector('.overlay__list');
 const overlayItem = [...document.querySelectorAll('.overlay__item')]
 const overlaySlides = document.querySelectorAll('.overlay__figure');
+
+const prevBtn = document.querySelector('.btn__icon--1');
+const nextBtn = document.querySelector('.btn__icon--2');
 
 let curNum = 0;
 cartValue.textContent = curNum;
@@ -50,6 +53,14 @@ const transformImg = function (className, value) {
   })
 }
 
+const removeActiveDatasetId = function (className) {
+  const itemClass = [...document.querySelectorAll(`.${className}__item`)];
+
+  itemClass.forEach(item => item.classList.remove(`${className}__item--active`));
+  const item = itemClass.find(item => Number(item.dataset.id) === curSlide);
+  item.classList.add(`${className}__item--active`);
+}
+
 // Display Image on Click
 const displayImageOnClick = function (className, e) {
   const item1 = document.querySelectorAll(`.${className}__item`);
@@ -65,20 +76,13 @@ const displayImageOnClick = function (className, e) {
   transformImg(`${className}__figure`, -curSlide);
 
   if (curSlide === '' && className !== 'slider') return;
-  // Remove existing active class
-  overlayItem.forEach(item => item.classList.remove('overlay__item--active'));
 
-  const item2 = overlayItem.find(item => Number(item.dataset.id) === curSlide);
+  removeActiveDatasetId('overlay')
   transformImg('overlay__figure', -curSlide);
-  item2.classList.add('overlay__item--active');
 
   if (curSlide === '' && className !== 'overlay') return;
-  // Remove existing active class
-  sliderItem.forEach(item => item.classList.remove('slider__item--active'));
-
-  const item3 = sliderItem.find(item => Number(item.dataset.id) === curSlide);
+  removeActiveDatasetId('slider')
   transformImg('slider__figure', -curSlide);
-  item3.classList.add('slider__item--active');
 }
 
 // Increase and Decrease Number
@@ -149,14 +153,41 @@ const deleteCartItem = function (e) {
   headerCartPopup.classList.add('hidden');
 }
 
-const closePopup = function (e) {
+const closePopupOnClick1 = function (e) {
   if (!e.target.closest('.btn__close')) return;
+  overlay.classList.add('hidden');
+}
+
+const closePopupOnClick2 = function (e) {
+  if (e.target.className !== 'overlay') return;
   overlay.classList.add('hidden');
 }
 
 const displayPopup = function (e) {
   if (!e.target.closest('.slider__product')) return;
   overlay.classList.remove('hidden');
+}
+
+const nextSlide = function () {
+  if (curSlide >= totalSlide) { curSlide = 0; } else { curSlide++; }
+
+  transformImg('overlay__figure', -curSlide);
+  transformImg('slider__figure', -curSlide);
+
+  // add active class to current slide
+  removeActiveDatasetId('overlay');
+  removeActiveDatasetId('slider');
+}
+
+const prevSlide = function () {
+  if (curSlide === 0) { curSlide = totalSlide; } else { curSlide--; }
+
+  transformImg('overlay__figure', -curSlide);
+  transformImg('slider__figure', -curSlide);
+
+  // add active class to current slide
+  removeActiveDatasetId('overlay');
+  removeActiveDatasetId('slider');
 }
 
 
@@ -173,5 +204,9 @@ sliderList.addEventListener('click', displayImageOnClick.bind(this, 'slider'));
 overlayList.addEventListener('click', displayImageOnClick.bind(this, 'overlay'));
 cartCount.addEventListener('click', increaseDecreaseNumber);
 
-overlay.addEventListener('click', closePopup);
+overlay.addEventListener('click', closePopupOnClick1);
+overlay.addEventListener('click', closePopupOnClick2);
+
 slider.addEventListener('click', displayPopup);
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
