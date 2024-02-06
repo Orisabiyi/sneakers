@@ -16,8 +16,11 @@ const overlayList = document.querySelector('.overlay__list');
 const overlayItem = [...document.querySelectorAll('.overlay__item')]
 const overlaySlides = document.querySelectorAll('.overlay__figure');
 
-const prevBtn = document.querySelector('.btn__icon--1');
-const nextBtn = document.querySelector('.btn__icon--2');
+const productPrevBtn = document.querySelector('.product .btn__icon--1');
+const productNextBtn = document.querySelector('.product .btn__icon--2');
+
+const overlayPrevBtn = document.querySelector('.overlay .btn__icon--1');
+const overlayNextBtn = document.querySelector('.overlay .btn__icon--2');
 
 let curNum = 0;
 cartValue.textContent = curNum;
@@ -164,7 +167,7 @@ const closePopupOnClick2 = function (e) {
 }
 
 const displayPopup = function (e) {
-  if (!e.target.closest('.slider__product')) return;
+  if (!e.target.closest('.slider__product') || window.matchMedia('(max-width: 600px)').matches) return;
   overlay.classList.remove('hidden');
 }
 
@@ -179,7 +182,8 @@ const nextSlide = function () {
   removeActiveDatasetId('slider');
 }
 
-const prevSlide = function () {
+const prevSlide = function (e) {
+  console.log(e.target);
   if (curSlide === 0) { curSlide = totalSlide; } else { curSlide--; }
 
   transformImg('overlay__figure', -curSlide);
@@ -208,5 +212,7 @@ overlay.addEventListener('click', closePopupOnClick1);
 overlay.addEventListener('click', closePopupOnClick2);
 
 slider.addEventListener('click', displayPopup);
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
+productNextBtn.addEventListener('click', nextSlide);
+productPrevBtn.addEventListener('click', prevSlide);
+overlayNextBtn.addEventListener('click', nextSlide);
+overlayPrevBtn.addEventListener('click', prevSlide);
