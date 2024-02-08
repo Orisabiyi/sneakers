@@ -47,6 +47,12 @@ const loadPage = function () {
   getItemLocalStorage();
 }
 
+const displayNavMenu = function (e) {
+  if (!e.target.closest('.menu')) return;
+
+  e.currentTarget.querySelector('.header__nav-list').classList.toggle('display-flex');
+}
+
 // 0%, 100%, 200%, 300%
 const transformImg = function (className, value) {
   const figure = document.querySelectorAll(`.${className}`);
@@ -200,6 +206,8 @@ transformImg('overlay__figure', 0);
 
 // Event Listener
 document.addEventListener('DOMContentLoaded', loadPage);
+
+header.addEventListener('click', displayNavMenu);
 
 cartBtn.addEventListener('click', addToCart);
 header.addEventListener('click', showBasket);

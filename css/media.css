@@ -1,7 +1,7 @@
 @media only screen and (max-width: 37.5em) {
   .menu {
     display: block;
-    z-index: 3;
+    z-index: 4;
   }
 
   .menu__icon {
@@ -12,9 +12,9 @@
   }
 
   .header {
-    padding: 3rem;
+    padding: 2.5rem;
     justify-content: center;
-    gap: 1.75rem;
+    gap: 2rem;
   }
 
   .header__logo {
@@ -40,6 +40,7 @@
     margin-right: 0;
 
     position: absolute;
+    z-index: 3;
     top: 0;
     left: 0;
 
@@ -141,12 +142,18 @@
     filter: none;
   }
 
+  .cart {
+    flex-direction: column;
+  }
+
   .cart__count {
     font-size: 4rem;
+    width: 100%;
   }
 
   .cart__btn {
     padding: 3rem 0;
+    width: 100%;
   }
 
   .cart__img {
