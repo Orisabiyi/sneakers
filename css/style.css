@@ -292,7 +292,7 @@ hr {
 .slider__img,
 .overlay__img {
   display: block;
-  object-fit: cover;
+  object-fit: fill;
   border-radius: 1.3rem;
   width: 100%;
   height: 100%;

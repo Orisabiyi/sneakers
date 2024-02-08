@@ -1,6 +1,7 @@
 @media only screen and (max-width: 37.5em) {
   .menu {
     display: block;
+    z-index: 3;
   }
 
   .menu__icon {
@@ -11,14 +12,14 @@
   }
 
   .header {
-    padding: 3rem 5rem;
+    padding: 3rem;
     justify-content: center;
-    gap: 3rem;
+    gap: 1.75rem;
   }
 
   .header__logo {
-    margin-right: auto;
     height: 3.5rem;
+    margin-right: auto;
   }
 
   .header__logo-img {
@@ -34,11 +35,28 @@
 
   .header__nav-list {
     display: none;
+    align-items: flex-start;
+    flex-direction: column;
     margin-right: 0;
 
     position: absolute;
-    top: 10rem;
-    left: 2rem;
+    top: 0;
+    left: 0;
+
+    background-color: var(--neutral-color-1);
+    padding: 14rem 4rem;
+    width: 60%;
+    height: 100%;
+  }
+
+  .header__nav-item {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--very-dark-blue);
+  }
+
+  .header__nav-item:hover::after {
+    width: 0;
   }
 
   .header__cart-img {
@@ -90,7 +108,7 @@
   }
 
   .slider__product {
-    height: 75rem;
+    height: 60rem;
   }
 
   .slider__img {
@@ -157,6 +175,10 @@
     font-size: 2.55rem;
     margin-bottom: 2rem;
     width: 100%;
+  }
+
+  .display-flex {
+    display: flex;
   }
 
   .price {
