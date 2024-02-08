@@ -428,7 +428,6 @@ hr {
   gap: 2rem;
 
   transform: translateY(4rem);
-  flex: 0 0 auto;
   width: 100%;
 }
 
@@ -572,6 +571,7 @@ hr {
 }
 
 .btn__control--1 {
+  display: none;
   width: 0;
 }
 
@@ -704,6 +704,7 @@ hr {
   }
 
   .btn__control {
+    display: flex;
     width: 100%;
   }
 
