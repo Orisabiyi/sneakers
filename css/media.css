@@ -62,7 +62,7 @@
   }
 
   .header__nav-item {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 700;
     color: var(--very-dark-blue);
   }
@@ -87,6 +87,14 @@
     padding: 4rem;
   }
 
+  .header__cart-main {
+    padding: 3rem 5rem;
+  }
+
+  .header__cart-item {
+    gap: 4rem;
+  }
+
   .header__cart-popup {
     padding: 1.5px 5px;
     top: -7px;
@@ -102,7 +110,7 @@
   }
 
   .header__cart-description {
-    font-size: 2.8rem;
+    font-size: 3rem;
   }
 
   hr {
