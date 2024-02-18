@@ -159,8 +159,9 @@ const deleteCartItem = function (e) {
   const target = e.target.classList.contains('header__cart-icon')
   if (!target) return;
 
-  e.target.closest('.header__cart-item').remove();
   document.querySelector('.btn--1').remove();
+  e.target.closest('.header__cart-item').remove();
+  document.querySelector('.basket').classList.add('hidden');
 
   // Clear Local Storage
   localStorage.clear();
