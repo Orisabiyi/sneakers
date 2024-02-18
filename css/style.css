@@ -175,6 +175,12 @@ body::-webkit-scrollbar {
   flex-direction: column;
 }
 
+.basket__header {
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+}
+
 .basket-heading,
 .basket__container {
   flex: 0 0 auto;
@@ -184,7 +190,11 @@ body::-webkit-scrollbar {
 .basket-heading {
   font-size: 2rem;
   color: var(--dark-grayish-blue);
-  padding: 2rem;
+}
+
+.basket__times {
+  display: inline-block;
+  transform: scale(2.5);
 }
 
 .basket__container {

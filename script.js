@@ -2,6 +2,7 @@
 const header = document.querySelector('.header');
 const headerCartPopup = document.querySelector('.header__cart-popup');
 const basketContainer = document.querySelector('.basket__container');
+const basketCloseBtn = document.querySelector('.basket__times')
 
 const cartValue = document.querySelector('.cart__value');
 const cartCount = document.querySelector('.cart__count');
@@ -115,6 +116,11 @@ const showBasket = function (e) {
   e.currentTarget.querySelector('.basket').classList.toggle('hidden');
 }
 
+const closeBasket = function (e) {
+  console.log(this.closest('.basket'));
+  this.closest('.basket').classList.add('hidden')
+}
+
 const renderListItem = function (currentNum, currentPrice = 125) {
   basketContainer.innerHTML = '';
   const html = `
@@ -212,6 +218,7 @@ header.addEventListener('click', displayNavMenu);
 cartBtn.addEventListener('click', addToCart);
 header.addEventListener('click', showBasket);
 basketContainer.addEventListener('click', deleteCartItem);
+basketCloseBtn.addEventListener('click', closeBasket);
 sliderList.addEventListener('click', displayImageOnClick.bind(this, 'slider'));
 overlayList.addEventListener('click', displayImageOnClick.bind(this, 'overlay'));
 cartCount.addEventListener('click', increaseDecreaseNumber);
