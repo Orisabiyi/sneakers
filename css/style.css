@@ -159,7 +159,7 @@ body::-webkit-scrollbar {
   right: 0;
 }
 
-.header__cart-basket {
+.basket {
   position: absolute;
   top: 9rem;
   right: 7rem;
@@ -175,19 +175,19 @@ body::-webkit-scrollbar {
   flex-direction: column;
 }
 
-.header__cart-heading,
-.header__cart-main {
+.basket-heading,
+.basket__container {
   flex: 0 0 auto;
   width: 100%;
 }
 
-.header__cart-heading {
+.basket-heading {
   font-size: 2rem;
   color: var(--dark-grayish-blue);
   padding: 2rem;
 }
 
-.header__cart-main {
+.basket__container {
   border-top: 1px solid var(--grayish-blue);
   padding: 3rem 2rem;
   flex: 1;
@@ -198,7 +198,7 @@ body::-webkit-scrollbar {
   flex-direction: column;
 }
 
-.header__cart-paragraph {
+.basket__paragraph {
   color: var(--dark-grayish-blue);
 }
 

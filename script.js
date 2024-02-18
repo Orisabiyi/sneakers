@@ -1,7 +1,7 @@
 'use strict';
 const header = document.querySelector('.header');
 const headerCartPopup = document.querySelector('.header__cart-popup');
-const headerCartMain = document.querySelector('.header__cart-main');
+const basketContainer = document.querySelector('.basket__container');
 
 const cartValue = document.querySelector('.cart__value');
 const cartCount = document.querySelector('.cart__count');
@@ -112,17 +112,17 @@ const showBasket = function (e) {
   const target = e.target.closest('.header__cart-img');
 
   if (!target) return;
-  e.currentTarget.querySelector('.header__cart-basket').classList.toggle('hidden');
+  e.currentTarget.querySelector('.basket').classList.toggle('hidden');
 }
 
 const renderListItem = function (currentNum, currentPrice = 125) {
-  headerCartMain.innerHTML = '';
+  basketContainer.innerHTML = '';
   const html = `
       <div class="header__cart-item">
         <div class="header__cart-img--1">
           <img src="images/image-product-1-thumbnail.jpg" alt="sneakers image" class="header__cart-icon header__cart-icon--3">
         </div>
-        <p class="header__cart-description">
+        <p class="basket__paragraph">
           Fall Limited Edition Sneakers $${currentPrice.toFixed(2)} x ${currentNum} 
           <strong>$${(currentPrice * currentNum).toFixed(2)}</strong>
         </p>
@@ -133,8 +133,8 @@ const renderListItem = function (currentNum, currentPrice = 125) {
       
       <button class="btn btn--1">Checkout</button>`;
 
-  headerCartMain.insertAdjacentHTML('afterbegin', html);
-  headerCartMain.style.justifyContent = 'space-between';
+  basketContainer.insertAdjacentHTML('afterbegin', html);
+  basketContainer.style.justifyContent = 'space-between';
 }
 
 const addToCart = function (e) {
@@ -211,7 +211,7 @@ header.addEventListener('click', displayNavMenu);
 
 cartBtn.addEventListener('click', addToCart);
 header.addEventListener('click', showBasket);
-headerCartMain.addEventListener('click', deleteCartItem);
+basketContainer.addEventListener('click', deleteCartItem);
 sliderList.addEventListener('click', displayImageOnClick.bind(this, 'slider'));
 overlayList.addEventListener('click', displayImageOnClick.bind(this, 'overlay'));
 cartCount.addEventListener('click', increaseDecreaseNumber);

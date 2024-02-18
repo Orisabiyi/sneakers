@@ -74,24 +74,24 @@
     width: 4rem;
   }
 
-  .header__cart-basket {
+  .basket {
     top: 13rem;
     right: 2rem;
     width: 95%;
     height: 50rem;
   }
 
-  .header__cart-heading {
+  .basket-heading {
     font-size: 3rem;
     padding: 4rem;
   }
 
-  .header__cart-main {
-    padding: 3rem 5rem;
+  .basket__container {
+    padding: 3rem;
   }
 
   .header__cart-item {
-    gap: 4rem;
+    gap: 2.2rem;
   }
 
   .header__cart-popup {
@@ -108,7 +108,7 @@
     width: 5rem;
   }
 
-  .header__cart-description {
+  .basket__paragraph {
     font-size: 3rem;
   }
 
@@ -221,7 +221,6 @@
   .price {
     display: inline-block;
     width: 50%;
-    /* margin-right: auto; */
     font-size: 3rem;
   }
 
@@ -240,6 +239,6 @@
   }
 
   .btn--1 {
-    font-size: 2rem;
+    font-size: 2.8rem;
   }
 }
