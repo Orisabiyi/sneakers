@@ -75,7 +75,7 @@
   }
 
   .basket {
-    top: 13rem;
+    top: 11.5rem;
     right: 2rem;
     width: 95%;
     height: auto;
@@ -105,11 +105,11 @@
   }
 
   .header__cart-img--1 {
-    width: 15rem;
+    width: 25%;
   }
 
   .header__cart-img--2 {
-    width: 5rem;
+    width: 10%;
   }
 
   .basket__paragraph {
