@@ -161,7 +161,9 @@ const deleteCartItem = function (e) {
 
   document.querySelector('.btn--1').remove();
   e.target.closest('.header__cart-item').remove();
-  document.querySelector('.basket').classList.add('hidden');
+  document.querySelector('.basket__container').innerHTML = `<p class="basket__paragraph">Your cart is empty</p>`
+  document.querySelector('.basket__container').style.justifyContent = 'center'
+  console.log(true);
 
   // Clear Local Storage
   localStorage.clear();

@@ -75,8 +75,9 @@
   }
 
   .basket {
-    top: 11.5rem;
-    right: 2rem;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
     width: 95%;
     height: auto;
   }
@@ -90,8 +91,8 @@
   }
 
   .basket__container {
-    padding: 4rem;
-    gap: 3rem;
+    padding: 3rem;
+    gap: 2.5rem;
   }
 
   .header__cart-item {

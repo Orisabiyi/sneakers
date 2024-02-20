@@ -177,11 +177,12 @@ body::-webkit-scrollbar {
 
 .basket__header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 3rem;
 }
 
-.basket-heading,
+.basket-header,
 .basket__container {
   flex: 0 0 auto;
   width: 100%;
@@ -193,7 +194,6 @@ body::-webkit-scrollbar {
 }
 
 .basket__times {
-  display: inline-block;
   transform: scale(2.5);
 }
 
